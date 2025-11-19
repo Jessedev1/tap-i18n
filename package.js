@@ -1,7 +1,7 @@
 Package.describe({
   name: 'jessedev:i18n',
   summary: 'A comprehensive internationalization solution for Meteor',
-  version: '2.0.1',
+  version: '3.0.0',
   git: 'https://github.com/Jessedev1/tap-i18n'
 });
 
