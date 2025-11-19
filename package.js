@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'tap:i18n',
+  name: 'jessedev:i18n',
   summary: 'A comprehensive internationalization solution for Meteor',
   version: '2.0.1',
-  git: 'https://github.com/TAPevents/tap-i18n'
+  git: 'https://github.com/Jessedev1/tap-i18n'
 });
 
 both = ['server', 'client'];
@@ -10,7 +10,7 @@ server = 'server';
 client = 'client';
 
 Package.onUse(function (api) {
-  api.versionsFrom("2.2.4");
+  api.versionsFrom("3.0");
 
   api.use('coffeescript@2.4.1', both);
   api.use('underscore@1.0.10', both);
@@ -24,7 +24,7 @@ Package.onUse(function (api) {
   api.use('jquery@1.0.10', client);
   api.use('templating@1.4.0', client);
 
-  api.use("webapp", server);
+  api.use("webapp@2.0.7", server);
 
   // load TAPi18n
   api.addFiles('lib/globals.js', both);
