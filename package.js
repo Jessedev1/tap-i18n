@@ -52,10 +52,11 @@ Package.onUse(function (api) {
 
 Package.registerBuildPlugin({
   name: 'tap-i18n-compiler',
-  use: ['coffeescript@2.4.1', 'underscore@1.0.10', 'check@1.3.1'],
+  use: ['coffeescript@2.4.1', 'check@1.3.1'],
   npmDependencies: {
     "node-json-minify": "0.1.3-a",
-    "yamljs": "0.2.4"
+    "yamljs": "0.2.4",
+    "underscore": "1.13.6"
   },
   sources: [
     'lib/globals.js',

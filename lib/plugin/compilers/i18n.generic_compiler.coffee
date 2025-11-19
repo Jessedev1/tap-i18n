@@ -1,15 +1,16 @@
 path = Npm.require "path"
+_ = Npm.require 'underscore'
 
 helpers = share.helpers
 compilers = share.compilers
 compiler_configuration = share.compiler_configuration
 
-compilers.generic_compiler = (extension, helper) -> 
+compilers.generic_compiler = (extension, helper) ->
   GenericCompiler = ->
     @processFilesForTarget = (input_files) ->
       input_files.forEach (input_file) ->
         compiler_configuration.registerInputFile input_file
-        
+
         input_path = helpers.getFullInputPath input_file
         language = path.basename(input_path).split(".").slice(0, -2).pop()
         if _.isUndefined(language) or _.isEmpty(language)
@@ -47,7 +48,7 @@ compilers.generic_compiler = (extension, helper) ->
               sourcePath: input_path
             return
 
-          # add the language names to TAPi18n.languages_names 
+          # add the language names to TAPi18n.languages_names
           language_name = [language, language]
           if language_names[language]?
             language_name = language_names[language]
@@ -74,7 +75,7 @@ compilers.generic_compiler = (extension, helper) ->
         if language == compiler_configuration.fallback_language
           output +=
             """
-            // integrate the fallback language translations 
+            // integrate the fallback language translations
             translations = {};
             translations[namespace] = #{JSON.stringify translations};
             TAPi18n._loadLangFileObject("#{compiler_configuration.fallback_language}", translations);
@@ -97,7 +98,7 @@ compilers.generic_compiler = (extension, helper) ->
 
               """
 
-          output += 
+          output +=
             """
             TAPi18n._registerServerTranslator("#{language}", namespace);
 
@@ -127,5 +128,5 @@ compilers.generic_compiler = (extension, helper) ->
           bare: false
 
     return @
-  
+
   return GenericCompiler

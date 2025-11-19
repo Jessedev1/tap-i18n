@@ -1,4 +1,5 @@
 path = Npm.require "path"
+_ = Npm.require 'underscore'
 
 compiler_configuration = share.compiler_configuration
 
@@ -25,7 +26,7 @@ _.extend share.helpers,
       @getCompileStepArchAndPackage(input_file_obj) in compiler_configuration.default_project_conf_inserted_for
 
     getFullInputPath: (input_file_obj) -> path.join input_file_obj.getSourceRoot(), input_file_obj.getPathInPackage()
-    
+
     # archMatches is taken from https://github.com/meteor/meteor/blob/7da5b32d7882b510df8aa2002f891fc4e1ae1126/tools/utils/archinfo.ts#L232
     # due to lack of exposure of meteor/tools/utils/archinfo.ts.
     # If you find a way to use the original method, please use it and remove this one.

@@ -1,4 +1,5 @@
 JSON.minify = JSON.minify || Npm.require("node-json-minify")
+_ = Npm.require 'underscore'
 helpers = share.helpers
 
 # loads a json from input_file_obj
@@ -8,7 +9,7 @@ _.extend share.helpers,
   loadJSON: (input_file_obj) ->
     if not input_file_obj?
       return undefined
-      
+
     if not (content_as_string = input_file_obj.getContentsAsString())?
       return null
 

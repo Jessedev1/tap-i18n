@@ -1,4 +1,5 @@
 YAML = Npm.require 'yamljs'
+_ = Npm.require 'underscore'
 helpers = share.helpers
 
 # loads a yml from input_file_obj
@@ -8,7 +9,7 @@ _.extend share.helpers,
   loadYAML: (input_file_obj=null) ->
     if not input_file_obj?
       return undefined
-      
+
     if not (content_as_string = input_file_obj.getContentsAsString())?
       return null
 

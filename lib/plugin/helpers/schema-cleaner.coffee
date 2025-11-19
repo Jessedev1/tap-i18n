@@ -1,3 +1,4 @@
+_ = Npm.require 'underscore'
 _.extend share.helpers,
   buildCleanerForSchema: (schema, human_readable_reference="Obj") ->
     return (obj_to_clean) ->
